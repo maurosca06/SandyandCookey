@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandy and Cookey | Handmade Sandwiches & Cookies</title>
+    <style>
+        :root {
+            --celeste: #74b9ff;
+            --celeste-claro: #e8f4fd;
+            --blanco: #ffffff;
+            --marron: #4a3728;
+            --marron-claro: #8c6d53;
+            --gris-suave: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--marron);
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            background-color: var(--blanco);
+            border-bottom: 3px dashed var(--celeste);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--celeste);
+        }
+
+        .logo-text {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--marron);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--marron);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--celeste);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--celeste-claro);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            color: var(--marron);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 35px;
+            color: var(--marron-claro);
+        }
+
+        .btn-main {
+            display: inline-block;
+            background-color: var(--celeste);
+            color: var(--blanco);
+            padding: 14px 35px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: #54a0ff;
+            transform: scale(1.05);
+        }
+
+        /* Sections Common */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 50px;
+            color: var(--marron);
+        }
+
+        .section-title::after {
+            content: '♥';
+            display: block;
+            color: var(--celeste);
+            font-size: 22px;
+            margin-top: 5px;
+        }
+
+        /* Our Story Section */
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Why Choose Us Section */
+        .features-bg {
+            background-color: var(--celeste-claro);
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .feature-card h3 {
+            margin: 15px 0 10px 0;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            font-size: 15px;
+            color: #666;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+        }
+
+        /* Detailed Menu Section */
+        .menu-bg {
+            background-color: var(--gris-suave);
+        }
+
+        .menu-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .menu-category {
+            font-size: 28px;
+            margin: 40px 0 20px 0;
+            color: var(--marron);
+            border-left: 5px solid var(--celeste);
+            padding-left: 15px;
+        }
+
+        .grid-menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .menu-item {
+            background: var(--blanco);
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.2s;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .item-details h4 {
+            font-size: 19px;
+            margin-bottom: 5px;
+        }
+
+        .item-details p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .item-price {
+            font-weight: bold;
+            color: var(--celeste);
+            font-size: 20px;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+        /* Testimonials Section */
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--celeste-claro);
+            padding: 30px;
+            border-radius: 15px;
+            border-bottom: 4px solid var(--celeste);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .stars {
+            color: #ffb142;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .review-author {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--marron-claro);
+        }
+
+        /* Customer Suggestions Form Section */
+        .suggestions-section {
+            background-color: var(--gris-suave);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--marron);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--celeste-claro);
+            border-radius: 8px;
+            outline: none;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--celeste);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .btn-submit {
+            background-color: var(--celeste);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #54a0ff;
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: var(--blanco);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            padding: 12px 20px;
+            border: 2px solid var(--celeste);
+            border-radius: 25px;
+            width: 65%;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .newsletter-btn {
+            background-color: var(--celeste);
+            color: var(--blanco);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            background-color: #54a0ff;
+        }
+
+        /* Contact & Location Section */
+        .contact-container {
+            max-width: 650px;
+            margin: 0 auto;
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 20px;
+            border: 3px dashed var(--celeste);
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-container p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .instagram-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--marron);
+            text-decoration: none;
+            font-weight: bold;
+            background-color: var(--celeste-claro);
+            padding: 10px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .instagram-link:hover {
+            background-color: #d2e9fc;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--marron);
+            color: var(--blanco);
+            text-align: center;
+            padding: 30px;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 38px;
+            }
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+            .newsletter-input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo-area">
+                <img src="logo.jpeg" alt="Sandy and Cookey Logo" class="logo-img" onerror="this.src='https://placehold.co/150x150/74b9ff/ffffff?text=🥪+🍪'">
+                <span class="logo-text">Sandy and Cookey</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#features">Why Us</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#suggestions">Suggestions</a></li>
+                <li><a href="#contact">Find Us</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Handmade Happiness in Every Bite!</h1>
+            <p>Discover the perfect match between savory gourmet sandwiches and sweet freshly-baked cookies.</p>
+            <a href="#menu" class="btn-main">Explore Our Menu</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2 class="section-title">Our Story</h2>
+        <p><strong>Sandy and Cookey</strong> started as a dream shared by a group of close friends who shared a deep, unconditional love for good food. We wanted to create a cozy place where people could enjoy simple, comforting, yet high-quality meals.</p>
+        <p>Located beautifully in Santa Teresita, we bake our cookies throughout the day so they are always warm, and we assemble our sandwiches with fresh, locally sourced ingredients. For us, this isn't just a business; it's our way of sharing joy with our community, one sandwich and one cookie at a time.</p>
+    </section>
+
+    <section id="features" class="features-bg">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>100% Fresh Ingredients</h3>
+                <p>We work with local suppliers in Santa Teresita to bring you organic vegetables and premium meats every day.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">👩‍🍳</div>
+                <h3>Baked with Love</h3>
+                <p>Our dynamic team of friends crafts every recipe from scratch. No artificial preservatives, just real food.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Custom Combos</h3>
+                <p>Can't decide between salty and sweet? We let you mix any half-sandwich with your favorite cookie!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu-bg">
+        <div class="menu-container">
+            <h2 class="section-title">Our Delicious Menu</h2>
+            
+            <h3 class="menu-category">🥪 Gourmet Sandwiches</h3>
+            <div class="grid-menu">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Classic Ham & Cheese</h4>
+                        <p>Toasted artisanal bread filled with premium smoked ham and melted mozzarella.</p>
+                    </div>
+                    <span class="item-price">$4.50</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>The Veggie Delight</h4>
+                        <p>Fresh avocado, organic tomatoes, crispy lettuce, cucumber, and homemade herb dressing.</p>
+                    </div>
+                    <span class="item-price">$5.00</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Crispy Chicken Sub</h4>
+                        <p>Golden crispy chicken breast with cheddar cheese, crispy bacon, and sweet BBQ sauce.</p>
+                    </div>
+                    <span class="item-price">$6.20</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Italian Prosciutto Special</h4>
+                        <p>Prosciutto, arugula, parmesan cheese shavings, and olive oil on a warm baguette.</p>
+                    </div>
+                    <span class="item-price">$7.00</span>
+                </div>
+            </div>
+
+            <h3 class="menu-category">🍪 Freshly Baked Cookies</h3>
+            <div class="grid-menu">
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Ultimate Chocolate Chip</h4>
+                        <p>Crispy on the edges, soft and chewy in the center, packed with Belgian chocolate chips.</p>
+                    </div>
+                    <span class="item-price">$1.50</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Double Chocolate Chunky</h4>
+                        <p>Rich dark chocolate dough loaded with chunks of premium white and milk chocolate.</p>
+                    </div>
+                    <span class="item-price">$1.80</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Red Velvet Dream</h4>
+                        <p>Traditional red velvet cookie base filled with a smooth, sweet cream cheese center.</p>
+                    </div>
+                    <span class="item-price">$2.00</span>
+                </div>
+                <div class="menu-item">
+                    <div class="item-details">
+                        <h4>Oatmeal, Honey & Raisins</h4>
+                        <p>A wholesome recipe made with whole oats, organic honey, and sweet raisins.</p>
+                    </div>
+                    <span class="item-price">$1.50</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonials-container">
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"The ultimate chocolate chip cookies are absolute perfection! They always serve them warm, and the chocolate melts in your mouth."</p>
+                <p class="review-author">- Emily R., Local Resident</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"My favorite lunch spot in Santa Teresita! The bread they use for the sandwiches is incredibly fresh and the customer service is wonderful."</p>
+                <p class="review-author">- Carlos M., Food Lover</p>
+            </div>
+            <div class="review-card">
+                <div class="stars">★★★★★</div>
+                <p class="review-text">"You can taste the love in everything they make. A fantastic place started by friends that clearly know how to make amazing comfort food."</p>
+                <p class="review-author">- Jessica K., Tourist</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="suggestions" class="suggestions-section">
+        <h2 class="section-title">Share Your Ideas With Us!</h2>
+        <div class="form-container">
+            <form onsubmit="event.preventDefault(); alert('Thank you for your suggestion! We love new ideas.');">
+                <div class="form-group">
+                    <label for="cust-name">Your Name:</label>
+                    <input type="text" id="cust-name" class="form-control" placeholder="Enter your full name...">
+                </div>
+                <div class="form-group">
+                    <label for="cust-idea">What should we add to our menu or shop?</label>
+                    <textarea id="cust-idea" class="form-control" placeholder="Share a new sandwich recipe, cookie flavor, or improvement..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Submit My Suggestion</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h2 class="section-title">Join The Cookie Club!</h2>
+        <p>Subscribe to our newsletter to receive special discounts, secret recipes, and notifications about our limited-edition flavors!</p>
+        <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address...">
+            <button class="newsletter-btn">Subscribe</button>
+        </div>
+    </section>
+
+    <section id="contact" class="menu-bg">
+        <h2 class="section-title">Visit Our Store</h2>
+        <div class="contact-container">
+            <p><strong>📍 Address:</strong> 1st and 33rd Street, Santa Teresita</p>
+            <p><strong>⏰ Opening Hours:</strong> Every day from 10:00 AM to 8:00 PM</p>
+            <p><strong>📞 WhatsApp Orders:</strong> +54 9 2257 66 4296</p>
+            <a href="https://instagram.com/SandyCookey.Bakery" target="_blank" class="instagram-link">
+                📸 Follow us on Instagram: @SandyCookey.Bakery
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Sandy and Cookey. All rights reserved. | Made with love for English Class Assignment.</p>
+    </footer>
+
+</body>
+</html>

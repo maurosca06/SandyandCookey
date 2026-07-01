@@ -1,2 +1,0 @@
-# SandyandCookey
-Ingles paguina web
